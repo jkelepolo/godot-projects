@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tiles/Tile_Scenes/AshenBiome/burnttree.png" type="Texture" id=1]
+[ext_resource path="res://Tiles/Tile_Scripts/BurntTree.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.32628
+height = 6.52277
+
+[node name="BurntTree" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 15.6621, 29.6679 )
+rotation = 1.5708
+shape = SubResource( 1 )

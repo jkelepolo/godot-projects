@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tiles/Tile_Scenes/ForestBiome/forestlog.png" type="Texture" id=1]
+[ext_resource path="res://Tiles/Tile_Scripts/ForestLog.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.9764
+height = 22.5687
+
+[node name="ForestLog" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 14.8512, 19.1849 )
+rotation = 1.39626
+shape = SubResource( 1 )

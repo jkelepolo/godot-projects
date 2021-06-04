@@ -1,0 +1,145 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Scripts/Menu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Font/Nakone.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 28
+font_data = SubResource( 5 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Username" type="Label" parent="UI"]
+margin_left = 420.742
+margin_top = 120.645
+margin_right = 600.742
+margin_bottom = 158.645
+custom_fonts/font = SubResource( 1 )
+text = "Username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="UI/Username"]
+margin_left = -35.2861
+margin_top = 48.7076
+margin_right = 223.0
+margin_bottom = 89.7076
+custom_fonts/font = SubResource( 2 )
+align = 1
+max_length = 16
+placeholder_text = "Username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Password" type="Label" parent="UI"]
+margin_left = 421.31
+margin_top = 223.654
+margin_right = 603.31
+margin_bottom = 261.654
+custom_fonts/font = SubResource( 1 )
+text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="UI/Password"]
+margin_left = -34.8145
+margin_top = 36.4135
+margin_right = 224.186
+margin_bottom = 77.4135
+custom_fonts/font = SubResource( 2 )
+align = 1
+secret = true
+placeholder_text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Login" type="Button" parent="UI"]
+margin_left = 434.112
+margin_top = 322.713
+margin_right = 590.112
+margin_bottom = 373.713
+custom_fonts/font = SubResource( 3 )
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Register" type="Button" parent="UI"]
+margin_left = 423.099
+margin_top = 390.79
+margin_right = 600.099
+margin_bottom = 441.79
+custom_fonts/font = SubResource( 3 )
+text = "Register"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConnectionStatus" type="Label" parent="UI"]
+margin_left = 10.3538
+margin_top = 556.871
+margin_right = 224.354
+margin_bottom = 588.871
+custom_fonts/font = SubResource( 4 )
+text = "Disconnected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Messages" type="Label" parent="UI"]
+margin_left = 4.0
+margin_top = 479.0
+margin_right = 1030.0
+margin_bottom = 511.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValidUser" type="Label" parent="UI"]
+margin_left = 649.114
+margin_top = 177.523
+margin_right = 901.114
+margin_bottom = 205.523
+custom_fonts/font = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterCamera" type="Camera2D" parent="."]
+position = Vector2( 515.418, 299.661 )
+current = true
+[connection signal="text_changed" from="UI/Username/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="UI/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="UI/Register" to="." method="_on_Register_pressed"]

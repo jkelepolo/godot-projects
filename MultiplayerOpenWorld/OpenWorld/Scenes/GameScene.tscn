@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Scripts/GameScene.gd" type="Script" id=1]
+[ext_resource path="res://UI/CanvasLayer.gd" type="Script" id=2]
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Navigation/Navigation.tres" type="TileSet" id=4]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource( 1 )
+show_borders = false
+chunk_refresh_rate = 1
+
+[node name="Chunks" type="Node2D" parent="."]
+
+[node name="Regions" type="TileMap" parent="Chunks"]
+cell_size = Vector2( 2560, 2560 )
+format = 1
+
+[node name="Chunk_Grid" type="TileMap" parent="Chunks"]
+cell_size = Vector2( 256, 256 )
+format = 1
+
+[node name="Loaded" type="Node2D" parent="Chunks"]
+
+[node name="YSort" type="YSort" parent="Chunks/Loaded"]
+
+[node name="Player" parent="Chunks/Loaded/YSort" instance=ExtResource( 5 )]
+position = Vector2( 7.56807, 7.29627 )
+
+[node name="Camera" type="Camera2D" parent="Chunks/Loaded/YSort/Player"]
+position = Vector2( 10.6281, 18.1795 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+
+[node name="Navigation" type="Navigation2D" parent="."]
+
+[node name="map" type="TileMap" parent="Navigation"]
+visible = false
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 7, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 2 )
+
+[node name="Chunk_Pos" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -623.0
+margin_top = -141.0
+margin_right = -12.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 1 )
+text = "(0,1)"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat" type="Control" parent="CanvasLayer"]
+anchor_left = 0.018
+anchor_top = 0.997
+anchor_right = 0.018
+anchor_bottom = 0.997
+margin_left = -0.432001
+margin_top = -195.2
+margin_right = 357.568
+margin_bottom = 23.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Chat"]
+modulate = Color( 1, 1, 1, 0.564706 )
+margin_left = -1.7652
+margin_top = 2.88901
+margin_right = 359.235
+margin_bottom = 159.889
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Chat"]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -4.7652
+margin_top = 165.889
+margin_right = 362.235
+margin_bottom = 189.889
+max_length = 100
+placeholder_text = "Press Enter To Chat"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Chat"]
+margin_left = 14.2348
+margin_top = 10.889
+margin_right = 342.235
+margin_bottom = 152.889
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

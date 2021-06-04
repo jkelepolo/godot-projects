@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Navigation/NavPath.png" type="Texture" id=1]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 ) ]
+
+[node name="Navigation_Tile" type="Node2D"]
+
+[node name="NavTile" type="Sprite" parent="."]
+modulate = Color( 0.509804, 0.968627, 0.560784, 0.101961 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="NavTile"]
+navpoly = SubResource( 1 )

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Entities/Peer/Peer.gd" type="Script" id=2]
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 4.25257 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[node name="Peer" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( -1.80566, 3.98779 )
+scale = Vector2( 0.380582, 0.376895 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 9.59846, 23.0123 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Username" type="Label" parent="."]
+margin_left = -39.1354
+margin_top = -15.2469
+margin_right = 59.8646
+margin_bottom = 3.7531
+custom_fonts/font = SubResource( 2 )
+text = "Username"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

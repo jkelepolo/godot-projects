@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Tiles/Tile_Scenes/ForestBiome/Grass.png" type="Texture" id=1]
+[ext_resource path="res://Tiles/Tile_Scripts/Grass.gd" type="Script" id=2]
+
+[node name="Grass" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )
