@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Gameplay Scenes/DungeonScripts/Horizontal_Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Horizontal Enemy/HE_5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Horizontal Enemy/HE_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Horizontal Enemy/HE_6.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Horizontal Enemy/HE_3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Horizontal Enemy/HE_4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Horizontal Enemy/HE_2.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 25.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.2374
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.3535
+
+[node name="Horizontal_Enemy" type="KinematicBody2D"]
+collision_mask = 104
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 1
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Circle" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player_Detect" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Detect"]
+shape = SubResource( 3 )
+[connection signal="body_shape_entered" from="Player_Detect" to="." method="_on_Player_Detect_body_shape_entered"]
