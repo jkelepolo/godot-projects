@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/You_Escaped.wav-b8069f8b26ada4fe3bfb1743d436c2de.sample"
+
+[deps]
+
+source_file="res://Audio/Scene/You_Escaped.wav"
+dest_files=[ "res://.import/You_Escaped.wav-b8069f8b26ada4fe3bfb1743d436c2de.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

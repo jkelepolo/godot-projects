@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gate.wav-76f99d7ad8ab5e1dea5d248855bcedac.sample"
+
+[deps]
+
+source_file="res://Audio/Scene/Gate.wav"
+dest_files=[ "res://.import/Gate.wav-76f99d7ad8ab5e1dea5d248855bcedac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
