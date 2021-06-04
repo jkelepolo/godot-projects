@@ -1,0 +1,119 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Assets/Info/Bio Frames/Info_7.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Info/Bio Frames/Info_4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Info/Bio Frames/Info_5.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Info/Bio Frames/Info_6.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Info/Bio Frames/Info_1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Info/Bio Frames/Info_3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Info/Bio Frames/Info_2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Info/Right_Arrow.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Info/Left_Arrow.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Info/X.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Info/PayYourDebt.png" type="Texture" id=11]
+[ext_resource path="res://Gameplay Scenes/Info.gd" type="Script" id=12]
+[ext_resource path="res://Transitions/Fade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Info/Static/Static_1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Info/Static/Static_2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Info/Static/Static_3.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 100.0
+} ]
+
+[node name="Info" type="Node2D"]
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Info_Text" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Easter_Egg" type="TextureButton" parent="Info_Text"]
+margin_left = 600.0
+margin_top = 69.0
+margin_right = 632.0
+margin_bottom = 101.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Right_Arrow" type="TextureButton" parent="."]
+margin_left = 866.007
+margin_top = 449.01
+margin_right = 930.007
+margin_bottom = 510.01
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Left_Arrow" type="TextureButton" parent="."]
+margin_left = 29.8062
+margin_top = 448.644
+margin_right = 93.8062
+margin_bottom = 509.644
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="X" type="TextureButton" parent="."]
+margin_left = 29.0
+margin_top = 20.0
+margin_right = 93.0
+margin_bottom = 84.0
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Pay Debt" type="Sprite" parent="."]
+visible = false
+position = Vector2( 803, 61 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Static" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 2 )
+frame = 1
+speed_scale = 80.0
+playing = true
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transition" parent="." instance=ExtResource( 13 )]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="pressed" from="Info_Text/Easter_Egg" to="." method="_on_Easter_Egg_pressed"]
+[connection signal="pressed" from="Right_Arrow" to="." method="_on_Right_Arrow_pressed"]
+[connection signal="pressed" from="Left_Arrow" to="." method="_on_Left_Arrow_pressed"]
+[connection signal="pressed" from="X" to="." method="_on_X_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

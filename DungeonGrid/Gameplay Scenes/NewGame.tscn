@@ -1,0 +1,210 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Menu/Background.png" type="Texture" id=1]
+[ext_resource path="res://Gameplay Scenes/Difficulty Selector.gd" type="Script" id=2]
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Gameplay Scenes/NewGame.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="NewGame" type="Node2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Background" type="Sprite" parent="UI"]
+modulate = Color( 0.4, 0.4, 0.4, 1 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MessagePanel" type="ColorRect" parent="UI"]
+margin_left = 237.0
+margin_top = 43.0
+margin_right = 723.0
+margin_bottom = 416.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/MessagePanel"]
+margin_left = 12.0
+margin_top = 23.4054
+margin_right = 468.0
+margin_bottom = 342.405
+custom_fonts/font = SubResource( 1 )
+text = "Are you sure you want to start a new game?
+All current data will be lost."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Yes_Panel" type="ColorRect" parent="UI"]
+margin_left = 314.0
+margin_top = 453.0
+margin_right = 455.0
+margin_bottom = 510.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Yes_Panel"]
+margin_top = 1.0
+margin_right = 140.0
+margin_bottom = 59.0
+custom_fonts/font = SubResource( 2 )
+text = "Yes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes_BTN" type="TextureButton" parent="UI/Yes_Panel"]
+margin_right = 141.0
+margin_bottom = 57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No_Panel" type="ColorRect" parent="UI"]
+margin_left = 506.206
+margin_top = 453.0
+margin_right = 647.206
+margin_bottom = 510.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/No_Panel"]
+margin_top = 1.0
+margin_right = 140.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 3 )
+text = "No"
+align = 1
+valign = 1
+
+[node name="No_BTN" type="TextureButton" parent="UI/No_Panel"]
+margin_right = 140.0
+margin_bottom = 56.0
+
+[node name="Difficulty Selector" type="Node" parent="UI"]
+script = ExtResource( 2 )
+
+[node name="Hard_Mode_1" type="ColorRect" parent="UI/Difficulty Selector"]
+margin_left = 786.0
+margin_top = 133.0
+margin_right = 910.0
+margin_bottom = 165.0
+color = Color( 0.933333, 0.152941, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="TextureButton" parent="UI/Difficulty Selector/Hard_Mode_1"]
+margin_right = 125.0
+margin_bottom = 33.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hard_Mode_0" type="ColorRect" parent="UI/Difficulty Selector"]
+margin_left = 786.48
+margin_top = 180.877
+margin_right = 910.48
+margin_bottom = 212.877
+color = Color( 0.952941, 0.2, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="TextureButton" parent="UI/Difficulty Selector/Hard_Mode_0"]
+margin_right = 123.0
+margin_bottom = 31.0
+
+[node name="Medium_Mode_1" type="ColorRect" parent="UI/Difficulty Selector"]
+margin_left = 786.0
+margin_top = 228.0
+margin_right = 910.0
+margin_bottom = 260.0
+color = Color( 0.843137, 0.278431, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="TextureButton" parent="UI/Difficulty Selector/Medium_Mode_1"]
+margin_right = 123.0
+margin_bottom = 31.0
+
+[node name="Medium_Mode_0" type="ColorRect" parent="UI/Difficulty Selector"]
+margin_left = 786.0
+margin_top = 280.0
+margin_right = 910.0
+margin_bottom = 312.0
+color = Color( 0.87451, 0.592157, 0.156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="TextureButton" parent="UI/Difficulty Selector/Medium_Mode_0"]
+margin_right = 125.0
+margin_bottom = 31.0
+
+[node name="Easy_Mode_0" type="ColorRect" parent="UI/Difficulty Selector"]
+margin_left = 784.502
+margin_top = 327.695
+margin_right = 908.502
+margin_bottom = 359.695
+color = Color( 0.211765, 0.952941, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="0" type="TextureButton" parent="UI/Difficulty Selector/Easy_Mode_0"]
+margin_right = 124.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selection" type="ColorRect" parent="UI/Difficulty Selector"]
+margin_left = 775.682
+margin_top = 335.444
+margin_right = 794.682
+margin_bottom = 354.444
+color = Color( 0.12549, 0.0352941, 0.952941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="UI/Yes_Panel/Yes_BTN" to="." method="_on_Yes_BTN_pressed"]
+[connection signal="pressed" from="UI/No_Panel/No_BTN" to="." method="_on_No_BTN_pressed"]
+[connection signal="pressed" from="UI/Difficulty Selector/Hard_Mode_1/4" to="UI/Difficulty Selector" method="_on_4_pressed"]
+[connection signal="pressed" from="UI/Difficulty Selector/Hard_Mode_0/3" to="UI/Difficulty Selector" method="_on_3_pressed"]
+[connection signal="pressed" from="UI/Difficulty Selector/Medium_Mode_1/2" to="UI/Difficulty Selector" method="_on_2_pressed"]
+[connection signal="pressed" from="UI/Difficulty Selector/Medium_Mode_0/1" to="UI/Difficulty Selector" method="_on_1_pressed"]
+[connection signal="pressed" from="UI/Difficulty Selector/Easy_Mode_0/0" to="UI/Difficulty Selector" method="_on_0_pressed"]

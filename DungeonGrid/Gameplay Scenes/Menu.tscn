@@ -1,0 +1,237 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Assets/Menu/Background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Menu/Title.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Menu/NewGame.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Menu/ContinueGame.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Menu/I.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Menu/Mute.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Menu/ResetHighscore.png" type="Texture" id=7]
+[ext_resource path="res://Gameplay Scenes/Menu.gd" type="Script" id=8]
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Transitions/Fade.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Menu/Mute_On.png" type="Texture" id=11]
+[ext_resource path="res://Assets/NewGame/NewGame.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=9]
+size = 46
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 45
+font_data = ExtResource( 9 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=12]
+size = 35
+outline_color = Color( 0.933333, 0.027451, 0.027451, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 59
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 37
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 60
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="Sprite" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="UI"]
+modulate = Color( 0.4, 0.4, 0.4, 1 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Sprite" parent="UI"]
+position = Vector2( 480, 159 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NewGame" type="Sprite" parent="UI"]
+position = Vector2( 480, 278 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NewGame" type="Sprite" parent="UI/NewGame"]
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="UI/NewGame"]
+margin_left = -160.0
+margin_top = -22.0
+margin_right = 161.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 9 )
+text = "New Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame_BTN" type="TextureButton" parent="UI/NewGame"]
+margin_left = -179.0
+margin_top = -30.0
+margin_right = 179.0
+margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueGame" type="TextureButton" parent="UI"]
+margin_left = 301.0
+margin_top = 374.75
+margin_right = 660.0
+margin_bottom = 434.75
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueGame" type="Sprite" parent="UI/ContinueGame"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Label" type="Label" parent="UI/ContinueGame"]
+margin_top = 3.0
+margin_right = 356.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 10 )
+text = "Continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="TextureButton" parent="UI"]
+margin_left = 128.0
+margin_top = 33.0
+margin_right = 190.0
+margin_bottom = 95.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Mute" type="AnimatedSprite" parent="UI"]
+position = Vector2( 67, 63 )
+frames = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mute_BTN" type="TextureButton" parent="UI/Mute"]
+margin_left = -29.0
+margin_top = -33.0
+margin_right = 37.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ResetHighscore" type="Sprite" parent="UI"]
+position = Vector2( 251, 63 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HighScore_Label" type="Label" parent="UI"]
+margin_left = 49.2089
+margin_top = 381.3
+margin_right = 250.209
+margin_bottom = 417.3
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HIGH SCORE"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Highscore_Count" type="Label" parent="UI/HighScore_Label"]
+margin_left = -59.9451
+margin_top = 32.2182
+margin_right = 260.055
+margin_bottom = 92.2182
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Bouncing_Death_Label" type="Label" parent="UI"]
+margin_left = 726.432
+margin_top = 377.567
+margin_right = 904.432
+margin_bottom = 415.567
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "BDs Killed"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BD_Count" type="Label" parent="UI/Bouncing_Death_Label"]
+margin_left = -118.755
+margin_top = 32.9187
+margin_right = 286.245
+margin_bottom = 92.9187
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.988235, 0.0156863, 0.0156863, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="." instance=ExtResource( 10 )]
+position = Vector2( -1.17508, 0.234268 )
+[connection signal="pressed" from="UI/NewGame/NewGame_BTN" to="." method="_on_NewGame_BTN_pressed"]
+[connection signal="pressed" from="UI/ContinueGame" to="." method="_on_ContinueGame_pressed"]
+[connection signal="pressed" from="UI/Info" to="." method="_on_Info_pressed"]
+[connection signal="pressed" from="UI/Mute/Mute_BTN" to="." method="_on_Mute_BTN_pressed"]

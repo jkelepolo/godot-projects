@@ -1,0 +1,758 @@
+[gd_scene load_steps=79 format=2]
+
+[ext_resource path="res://Assets/Menu/Background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Dungeon/UI/Movement Buttons/RightButton.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Info/X.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dungeon/UI/Retry.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Dungeon/SetPieces/TileRim.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Dungeon/UI/Bomb.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Dungeon/UI/Movement Buttons/UpButton.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Dungeon/UI/Movement Buttons/DownButton.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Dungeon/UI/Movement Buttons/LeftButton.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Dungeon/UI/SwitchOn.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Dungeon/UI/Ignite.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Dungeon/UI/SwitchOff.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Dungeon/UI/Tutorial2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Dungeon/UI/Tutorial3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Dungeon/UI/Tutorial4.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Dungeon/UI/Tutorial1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Dungeon/UI/Enemies Left.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Tile.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Dungeon/UI/ROOM.png" type="Texture" id=19]
+[ext_resource path="res://Transitions/Fade.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Gameplay Scenes/Dungeon.gd" type="Script" id=21]
+[ext_resource path="res://Objects/Walls.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_02.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_05.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_11.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_09.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_10.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_04.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_07.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_01.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_06.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_08.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Dungeon/SetPieces/Entities/Player/Player_03.png" type="Texture" id=33]
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=34]
+[ext_resource path="res://Entities/Vertical_Enemy.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Entities/Happy_Cyclops.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Entities/Horizontal_Enemy.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Entities/Bouncing_Death.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Assets/Dungeon/Generators/BDGen.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Dungeon/Generators/HGen.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Dungeon/Generators/CGen.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Dungeon/Generators/VGen.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Dungeon/SetPieces/gate/Gate.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Dungeon/SetPieces/gate/Gate Open/Gate_1.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Dungeon/SetPieces/gate/Gate Open/Gate_4.png" type="Texture" id=45]
+[ext_resource path="res://Assets/Dungeon/SetPieces/gate/Gate Open/Gate_3.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Dungeon/SetPieces/gate/Gate Open/Gate_2.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Dungeon/UI/Lives/3.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Dungeon/UI/Lives/2.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Dungeon/UI/Lives/1.png" type="Texture" id=50]
+[ext_resource path="res://Objects/Heart.tscn" type="PackedScene" id=51]
+[ext_resource path="res://Objects/Bomb.tscn" type="PackedScene" id=60]
+[ext_resource path="res://Objects/Explosion.tscn" type="PackedScene" id=61]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 61.6989
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 60.57
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 61.6796
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 62.6407
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 61.502
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=9]
+size = 64
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 34 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 45
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 34 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 37
+font_data = ExtResource( 34 )
+
+[sub_resource type="ConcavePolygonShape2D" id=12]
+segments = PoolVector2Array( 0, 0, 64, 0, 64, 0, 64, 64, 64, 64, 0, 64, 0, 64, 0, 0 )
+
+[sub_resource type="TileSet" id=13]
+0/name = "Tile.png 0"
+0/texture = ExtResource( 18 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 12 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=14]
+0/name = "BDGen.png 0"
+0/texture = ExtResource( 39 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "CGen.png 1"
+1/texture = ExtResource( 41 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "HGen.png 2"
+2/texture = ExtResource( 40 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "VGen.png 3"
+3/texture = ExtResource( 42 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 64, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 9.65228, 3.86369 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 10, 4.20767 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 4.74997, 9.14574 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 5.24908, 10 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ ExtResource( 43 ) ],
+"loop": false,
+"name": "Default",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "Open",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 20.9983, 21.6365 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 29.9073, 30.1938 )
+
+[sub_resource type="GDScript" id=22]
+script/source = "extends KinematicBody2D
+
+export var smooth_speed = 8
+
+func _physics_process(delta):
+	var Target = $'../Target_Loc'
+	var speed = get_global_position().distance_to(Target.global_position) * smooth_speed
+	var Target_Direction = Target.global_position - global_position
+	Target_Direction = Target_Direction.normalized()
+	move_and_slide(Target_Direction * speed)
+"
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ ExtResource( 30 ) ],
+"loop": false,
+"name": "Stopped",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 23 ), ExtResource( 33 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 32 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "Smile",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 15.8359
+
+[sub_resource type="Animation" id=25]
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Safe_Zone/ColorRect:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.113725, -0.25, 0, 0.25, 0, 0.113725, -0.25, 0, 0.25, 0, 0.113725, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Safe_Zone/ColorRect:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.627451, -0.25, 0, 0.25, 0, 0.627451, -0.25, 0, 0.25, 0, 0.627451, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Safe_Zone/ColorRect:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.521569, -0.25, 0, 0.25, 0, 0.521569, -0.25, 0, 0.25, 0, 0.521569, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Safe_Zone/ColorRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.184314, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.184314, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[node name="Dungeon" type="Node2D"]
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="UI"]
+modulate = Color( 0.4, 0.4, 0.4, 1 )
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="To_Menu_Button" type="TextureButton" parent="UI"]
+margin_left = 34.0179
+margin_top = 32.5377
+margin_right = 98.0179
+margin_bottom = 96.5377
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Sprite" parent="UI"]
+position = Vector2( 160, 64 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Retry_Button" type="TextureButton" parent="UI/Retry"]
+margin_left = -35.0
+margin_top = -35.0
+margin_right = 37.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="UpButton" type="Sprite" parent="UI"]
+position = Vector2( 158, 305 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Up_Area" type="Area2D" parent="UI/UpButton"]
+
+[node name="Up_Collision" type="CollisionShape2D" parent="UI/UpButton/Up_Area"]
+shape = SubResource( 1 )
+
+[node name="RightButton" type="Sprite" parent="UI"]
+position = Vector2( 254, 391 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Right_Area" type="Area2D" parent="UI/RightButton"]
+
+[node name="Right_Collision" type="CollisionShape2D" parent="UI/RightButton/Right_Area"]
+shape = SubResource( 2 )
+
+[node name="LeftButton" type="Sprite" parent="UI"]
+position = Vector2( 62, 391 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left_Area" type="Area2D" parent="UI/LeftButton"]
+
+[node name="Left_Collision" type="CollisionShape2D" parent="UI/LeftButton/Left_Area"]
+shape = SubResource( 3 )
+
+[node name="DownButton" type="Sprite" parent="UI"]
+position = Vector2( 158, 477 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Down_Area" type="Area2D" parent="UI/DownButton"]
+
+[node name="Down_Collision" type="CollisionShape2D" parent="UI/DownButton/Down_Area"]
+shape = SubResource( 4 )
+
+[node name="TileRim" type="Sprite" parent="UI"]
+position = Vector2( 480, 268 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Switch" type="AnimatedSprite" parent="UI"]
+position = Vector2( 782, 278 )
+frames = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Switch_Pressed" type="TextureButton" parent="UI/Switch"]
+margin_left = -54.0
+margin_top = -108.0
+margin_right = 53.0
+margin_bottom = 109.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Bomb" type="AnimatedSprite" parent="UI"]
+position = Vector2( 784, 457 )
+frames = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bomb_Button" type="Area2D" parent="UI/Bomb"]
+
+[node name="Bomb_Collision" type="CollisionShape2D" parent="UI/Bomb/Bomb_Button"]
+shape = SubResource( 7 )
+
+[node name="Lives" type="AnimatedSprite" parent="UI"]
+position = Vector2( 480.385, 459.703 )
+frames = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text" type="Node2D" parent="UI"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tutorial1" type="Sprite" parent="UI/Text"]
+position = Vector2( 782, 24 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tutorial2" type="Sprite" parent="UI/Text/Tutorial1"]
+position = Vector2( 0, 24 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tutorial3" type="Sprite" parent="UI/Text/Tutorial1"]
+position = Vector2( -2, 48 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tutorial4" type="Sprite" parent="UI/Text/Tutorial1"]
+position = Vector2( 0, 72 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemies_Left" type="Sprite" parent="UI/Text"]
+visible = false
+position = Vector2( 464, 497 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ROOM" type="Sprite" parent="UI/Text"]
+position = Vector2( 480, 32 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Number_Of_Switches" type="Label" parent="UI/Text"]
+margin_left = 758.524
+margin_top = 117.476
+margin_right = 796.524
+margin_bottom = 181.476
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Number_Of_Enemies" type="Label" parent="UI/Text"]
+visible = false
+margin_left = 563.93
+margin_top = 478.0
+margin_right = 590.93
+margin_bottom = 524.0
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Level_Text" type="Label" parent="UI/Text"]
+margin_left = 293.0
+margin_top = 50.0
+margin_right = 666.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 11 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Set" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tiles" type="TileMap" parent="Set"]
+position = Vector2( 0, -20 )
+tile_set = SubResource( 13 )
+collision_layer = 2147483648
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Generators" type="TileMap" parent="Set"]
+visible = false
+position = Vector2( 0, -20 )
+tile_set = SubResource( 14 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( 131078, 3, 0, 131079, 3, 0, 131080, 3, 0, 131081, 3, 0, 196613, 2, 0, 196614, 0, 0, 196616, 1, 0, 196617, 2, 0, 262149, 2, 0, 262152, 0, 0, 262153, 2, 0, 327685, 2, 0, 327686, 1, 0, 327687, 0, 0, 327688, 1, 0, 327689, 2, 0, 393221, 2, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" parent="Set" instance=ExtResource( 22 )]
+position = Vector2( 308.299, -43.0497 )
+
+[node name="Instanced_Walls" type="Node2D" parent="Set"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Target_Loc" type="Sprite" parent="."]
+modulate = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+position = Vector2( 351, 138 )
+texture = ExtResource( 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Left_Detect" type="Area2D" parent="Target_Loc"]
+position = Vector2( -1.99997, 1.52588e-05 )
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Loc/Left_Detect"]
+position = Vector2( -26.0898, -0.292877 )
+shape = SubResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Right_Detect" type="Area2D" parent="Target_Loc"]
+position = Vector2( -1.99997, 1.52588e-05 )
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Loc/Right_Detect"]
+position = Vector2( 26.6518, 0.0433655 )
+shape = SubResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Up_Detect" type="Area2D" parent="Target_Loc"]
+position = Vector2( -1.99997, 1.52588e-05 )
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Loc/Up_Detect"]
+position = Vector2( 0.125, -25.75 )
+shape = SubResource( 17 )
+
+[node name="Down_Detect" type="Area2D" parent="Target_Loc"]
+position = Vector2( -1.99997, 1.52588e-05 )
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Loc/Down_Detect"]
+position = Vector2( 0.176788, 26.1629 )
+shape = SubResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Heart" parent="." instance=ExtResource( 51 )]
+
+[node name="Objects" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Explosion" parent="Objects" instance=ExtResource( 61 )]
+position = Vector2( 32.3433, -27.3827 )
+
+[node name="Gate" type="AnimatedSprite" parent="Objects"]
+position = Vector2( 607.845, 396.618 )
+frames = SubResource( 19 )
+animation = "Default"
+
+[node name="Test_For_Player" type="Area2D" parent="Objects/Gate"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Gate/Test_For_Player"]
+position = Vector2( 0.668884, 0.594604 )
+shape = SubResource( 20 )
+
+[node name="Bomb" parent="Objects" instance=ExtResource( 60 )]
+frame = 1
+
+[node name="Instanced_Bombs" type="Node2D" parent="Objects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Safe_Zone" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safe_Zone"]
+visible = false
+position = Vector2( 352.019, 139.8 )
+shape = SubResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Safe_Zone"]
+margin_left = 322.0
+margin_top = 110.0
+margin_right = 382.0
+margin_bottom = 170.0
+color = Color( 0.113725, 0.627451, 0.521569, 0.184314 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 351, 138 )
+collision_layer = 2
+collision_mask = 304
+script = SubResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player_Sprite" type="AnimatedSprite" parent="Player"]
+frames = SubResource( 23 )
+animation = "Smile"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemies" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Border" type="StaticBody2D" parent="Enemies"]
+collision_layer = 8
+collision_mask = 8
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/Border"]
+polygon = PoolVector2Array( 317.149, 105.286, 317.232, 430.956, 643.1, 430.957, 642.933, 105.172, 318.15, 105.172, 318.15, 100.75, 650.173, 100.107, 651.462, 437.033, 310.071, 438.422, 313.445, 100.007, 317.512, 101.396 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Vertical_Enemy" parent="Enemies" instance=ExtResource( 35 )]
+position = Vector2( 544.433, 139.055 )
+
+[node name="Happy_Cyclops" parent="Enemies" instance=ExtResource( 36 )]
+position = Vector2( 545.409, 333.1 )
+
+[node name="Horizontal_Enemy" parent="Enemies" instance=ExtResource( 37 )]
+position = Vector2( 350.816, 331.789 )
+
+[node name="Bouncing_Death" parent="Enemies" instance=ExtResource( 38 )]
+position = Vector2( 480.542, 396.117 )
+
+[node name="Instanced_Enemies" type="Node2D" parent="Enemies"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transition" parent="." instance=ExtResource( 20 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Safe_Zone"
+anims/Safe_Zone = SubResource( 25 )
+[connection signal="pressed" from="UI/To_Menu_Button" to="." method="_on_To_Menu_Button_pressed"]
+[connection signal="pressed" from="UI/Retry/Retry_Button" to="." method="_on_Retry_Button_pressed"]
+[connection signal="input_event" from="UI/UpButton/Up_Area" to="." method="_on_Up_Area_input_event"]
+[connection signal="input_event" from="UI/RightButton/Right_Area" to="." method="_on_Right_Area_input_event"]
+[connection signal="input_event" from="UI/LeftButton/Left_Area" to="." method="_on_Left_Area_input_event"]
+[connection signal="input_event" from="UI/DownButton/Down_Area" to="." method="_on_Down_Area_input_event"]
+[connection signal="pressed" from="UI/Switch/Switch_Pressed" to="." method="_on_Switch_Pressed_pressed"]
+[connection signal="input_event" from="UI/Bomb/Bomb_Button" to="." method="_on_Bomb_Button_input_event"]
+[connection signal="body_entered" from="Objects/Gate/Test_For_Player" to="." method="_on_Test_For_Player_body_entered"]
+[connection signal="body_exited" from="Objects/Gate/Test_For_Player" to="." method="_on_Test_For_Player_body_exited"]
