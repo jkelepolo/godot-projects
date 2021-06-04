@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Biome",
+"language": "GDScript",
+"path": "res://Scenes/Instances/Biome.gd"
+}, {
+"base": "Node",
+"class": "Planet",
+"language": "GDScript",
+"path": "res://Scenes/Instances/Planet.gd"
+} ]
+_global_script_class_icons={
+"Biome": "",
+"Planet": ""
+}
+
+[application]
+
+config/name="Server"
+run/main_scene="res://Scenes/Main/Server.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+threads/thread_model=2
+environment/default_environment="res://default_env.tres"
