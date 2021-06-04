@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/TroyBoi - Drip (No Mayo) [feat. icekream].ogg-42349d592d1b8fb2b99bf938b6d20d42.oggstr"
+
+[deps]
+
+source_file="res://Songs/TroyBoi - Drip (No Mayo) [feat. icekream].ogg"
+dest_files=[ "res://.import/TroyBoi - Drip (No Mayo) [feat. icekream].ogg-42349d592d1b8fb2b99bf938b6d20d42.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

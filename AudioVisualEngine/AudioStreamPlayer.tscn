@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Songs/TroyBoi - Drip (No Mayo) [feat. icekream].ogg" type="AudioStream" id=1]
+[ext_resource path="res://Visualizer.gd" type="Script" id=2]
+[ext_resource path="res://Font/Nakone.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/Graphics/Icon.png" type="Texture" id=4]
+[ext_resource path="res://assets/Graphics/Border.png" type="Texture" id=5]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+mix_target = 1
+script = ExtResource( 6 )
+
+[node name="Dots" type="Node2D" parent="."]
+
+[node name="Visualizer" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Particles" type="Node2D" parent="Visualizer"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Visualizer/Particles"]
+position = Vector2( 466.73, -127.49 )
+scale = Vector2( 66.2885, -22.2944 )
+amount = 169
+lifetime = 10.0
+lifetime_randomness = 0.19
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+orbit_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 0.08
+damping = 46.24
+damping_random = 0.89
+angle_random = 0.44
+scale_amount = 26.0
+scale_amount_random = 1.0
+hue_variation_random = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Visualizer/Particles"]
+position = Vector2( 476.73, 616.51 )
+scale = Vector2( 66.2885, -22.2944 )
+amount = 169
+lifetime = 10.0
+lifetime_randomness = 0.19
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+orbit_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 0.08
+damping = 46.24
+damping_random = 0.89
+angle_random = 0.44
+scale_amount = 26.0
+scale_amount_random = 1.0
+hue_variation_random = 1.0
+
+[node name="Sprite" type="Sprite" parent="Visualizer"]
+self_modulate = Color( 0.705882, 0.705882, 0.705882, 1 )
+position = Vector2( 501.047, 265.536 )
+scale = Vector2( 0.08, 0.08 )
+texture = ExtResource( 4 )
+
+[node name="Border" type="Sprite" parent="Visualizer"]
+visible = false
+self_modulate = Color( 0.351563, 0.351563, 0.351563, 1 )
+position = Vector2( 480.137, 267.069 )
+scale = Vector2( 15.2486, 8.49252 )
+texture = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="Visualizer"]
+visible = false
+position = Vector2( 480, 266 )
+current = true
+smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_right = 0.425
+anchor_bottom = 0.239
+margin_left = 40.0
+margin_top = 18.0
+margin_right = -91.0
+margin_bottom = 402.94
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="finished" from="." to="Visualizer" method="_on_AudioStreamPlayer_finished"]

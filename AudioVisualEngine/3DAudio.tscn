@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Songs/Dub Zero - Nice Beaver.ogg" type="AudioStream" id=1]
+[ext_resource path="res://3DAudio.gd" type="Script" id=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+
+[node name="3DAudio" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="AudioStreamPlayer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0369964, -0.124252, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="AudioStreamPlayer"]
+transform = Transform( 1, 0, 0, 0, 0.860911, 0.508756, 0, -0.508756, 0.860911, -0.0322826, 2.04285, 3.09381 )
+fov = 137.813
